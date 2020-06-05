@@ -1,0 +1,11 @@
+Auto Podcast
+
+Weekly podcast generated from Likewise's content (tip).
+
+1. For an item being selected for the podcast, aggregate all tips. 
+
+2. For tips that are short, one or two setences, expand that content with openai GPT-2 (https://openai.com/blog/gpt-2-1-5b-release/). Simple demo can found here (https://talktotransformer.com/). We can double the amount of content for each item this way. 
+
+3. Stitch independent expanded tips together (hard part, did not find a easy way to do this). 
+
+4. Text to speech. (Various api can be used). 

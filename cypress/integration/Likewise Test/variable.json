@@ -1,0 +1,25 @@
+//This file is to control profile that are being used.
+
+{
+	"users" : {
+		"main" : {
+			"name" : "automation@yahoo.com",
+			"password" : "11111111",
+			"userHandle" : "@auto_mation",
+		},
+		"support1" : {
+			"name" : "twenty@yahoo.com",
+			"password" : "22222222",
+			"userName" : "twenty_thirty",
+		},
+		"support2" : {
+			"name" : "accdc@yahoo.com",
+			"password" : "22222222",
+			"userName" : "android_chrome_2457",
+		},
+		"static" : {
+			"name" : "testlate@yahoo.com",
+			"password" : "11111111",
+		}
+	}
+}
