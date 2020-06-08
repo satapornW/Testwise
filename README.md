@@ -5,15 +5,6 @@ How to run cypress:
 cd to cypress
 ./node_modules/.bin/cypress open
 
-run specific folder
-
-./node_modules/.bin/cypress run --spec "/Users/satapornworasilpchai/cypress/cypress/integration/Likewise Test/main/*.js" --headless  --browser chrome --config video=false
-''
-./node_modules/.bin/cypress run --spec "/Users/satapornworasilpchai/cypress/cypress/integration/Likewise Test/function/*.js" --headless  --browser chrome --config video=false
-
-./node_modules/.bin/cypress run --spec "/Users/satapornworasilpchai/cypress/cypress/integration/Likewise Test/profile/*.js" --headless  --browser chrome --config video=false
-
-
 Each section focuses on each of the components of the website.
 
 - Existing user login (Done)
@@ -22,7 +13,7 @@ Each section focuses on each of the components of the website.
 - Password recovery (Won't do)
 - Profile validation
 	- Edit profile (Change name)
-	- Content validation
+	- Content validation (Done)
 	- Settings (Won't do)
 		- Delete profile
 		- Password change 
@@ -31,14 +22,14 @@ Each section focuses on each of the components of the website.
 	- Recommend items w/ tips (Done)
 	- Follow other users (Done)
 	- Saves items (Done)
-	- Save lists 
+	- Save lists (Done)
 	- create list (Done)
 	- Create ask (Done)
 		- Add to ask
 		- Agree to ask
 		- Edit ask
 		- End ask
-	- Respond to ask
+	- Respond to ask (Done)
 	- Comment and Like on list and items
 	- Reply to comment
 - Special and Edge Cases (Can be automated, but it is not core function)
@@ -47,6 +38,6 @@ Each section focuses on each of the components of the website.
 	- Undoing actions
 	- Message and notifications
 
-Resuable functions are stored in support.js , eg simpleLogIn, logOut, startUp
+Reusable functions are stored in support.js , eg simpleLogIn, logOut, startUp
 
 
