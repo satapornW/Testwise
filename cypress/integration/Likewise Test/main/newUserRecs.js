@@ -121,9 +121,34 @@ describe('Follow & Recommned & Save', function() {
 	  })
 
 	it('Saves an item and verify', function() {
+
 		saveItemSearch('TV & Movies', 'fish');
 		cy.get('img[mattooltip="Saved"]').click({force: true});
 		cy.get('div[class="trending-text"]').should('contain', 'Fish');
+
+		cy.wait(2000);
+		cy.logOut();
+
+	})
+
+	it('Save a list and verify', function(){
+
+		cy.simpleLogIn(email, password);
+		cy.viewport(1440, 900);
+		//Save list
+		cy.visit('/' + '/list/Such-a-way-to-go-5e75338d3a99e800333b0ad6');
+		cy.wait(2000);
+		cy.get('button[id="follow-button"]').click();
+		cy.wait(1000);
+		cy.get('button[id="follow-button"]').should('contain', 'Saved');
+
+		//Go to my saves and check for this
+		cy.get('a[class="lw-link"]').click();
+		cy.contains('Lists').click();
+		cy.get('h3[class="title"]').should('contain', 'Such a way to go');
+
+
+
 	})
 
 })
