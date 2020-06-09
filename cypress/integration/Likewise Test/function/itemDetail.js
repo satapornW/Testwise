@@ -166,6 +166,8 @@ describe('Items details', function() {
         cy.get('img[title="Android Chromesedit"]').first().click({force: true});
         cy.get('h1[class="user-name ng-star-inserted"]').should('contain', ' Android Chromesedit ');
 
+        cy.logOut();
+
     })
 
 })

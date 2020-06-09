@@ -104,6 +104,8 @@ describe('Create a list', function() {
 
         cy.get('img[class="likewise-logo"]').click();
 
+        cy.logOut();
+
     })
 
 })

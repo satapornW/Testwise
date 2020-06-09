@@ -24,7 +24,13 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+var json = require('../integration/Likewise Test/variable.json');
+
+
 Cypress.Commands.add('simpleLogIn', (email, password) => {
+
+    cy.viewport('macbook-15');
+
 	cy.contains('Log in').click();
 	cy.contains('h1', 'Welcome Back');
 	cy.get('input[name="email"]').type(email);
@@ -49,7 +55,7 @@ Cypress.Commands.add('logOut', () => {
 
 Cypress.Commands.add('startUp', ()=> {
 
-    cy.viewport(1400, 720);
+    cy.viewport('macbook-15');
     // cy.visit('https://testwise.azurewebsites.net')
     cy.visit('/');
 

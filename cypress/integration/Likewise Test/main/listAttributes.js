@@ -16,13 +16,14 @@ describe('setup', function(){
 
 	})
 
-	it('Followers second list', function(){
+	it('Followers on fourth list', function(){
 
+		//Naviate to list tab
 		cy.get('span[class="count ng-star-inserted"]').eq(1).click();
 
 	    cy.wait(2000);
-	   	
-	    cy.get('p[class="list-field"]').eq(1).click({force: true});
+	   	//Init list followers modal
+	    cy.get('p[class="list-field"]').eq(3).click({force: true});
 	    cy.contains('@tuesday_morning_');
 		cy.get('button[class="close mat-icon-button"]').first().click();
 
