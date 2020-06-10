@@ -54,7 +54,9 @@ describe('Create Ask', function() {
         cy.get('[alt="Google Play Store Icon Image"]');
 
         cy.contains('h1', date);
-        //cy.logOut();
+
+        cy.wait(1000);
+        cy.logOut();
     })
 
     //Add recs to ask
@@ -69,6 +71,9 @@ describe('Create Ask', function() {
         //Make a suggestion
         addToAsk('home');
         addToAsk('iron man');
+
+        cy.wait(1000);
+        cy.logOut();
 
     })
 
@@ -89,6 +94,7 @@ describe('Create Ask', function() {
         cy.get('p[class="rec-by ng-star-inserted"]').eq(0).should('contain', 'twenty and 1 others');
         cy.get('p[class="rec-by ng-star-inserted"]').eq(1).should('contain', 'twenty and 1 others');
 
+        cy.wait(1000);
         cy.logOut();
         
     })
