@@ -5,6 +5,9 @@ How to run cypress:
 cd to cypress
 ./node_modules/.bin/cypress open
 
+Run headless
+./node_modules/.bin/cypress run --headless
+
 Each section focuses on each of the components of the website.
 
 - Existing user login (Done)
@@ -12,7 +15,10 @@ Each section focuses on each of the components of the website.
 - New registration email only (Done) (FB and Google exceptions, cannot change window)
 - Password recovery (Won't do)
 - Profile validation
-	- Edit profile (Change name)
+	- Edit profile bio
+		- Normal
+		- With profanity
+			-This will be tested in a new user creation.
 	- Content validation (Done)
 	- Settings (Won't do)
 		- Delete profile
