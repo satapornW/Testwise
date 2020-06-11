@@ -13,6 +13,8 @@ Each section focuses on each of the components of the website.
 - Existing user login (Done)
 - Login Validation (Done) 
 - New registration email only (Done) (FB and Google exceptions, cannot change window)
+	- Registration check
+	- Profanity check
 - Password recovery (Won't do)
 - Profile validation
 	- Edit profile bio
