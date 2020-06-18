@@ -51,18 +51,18 @@ describe('Create a list', function() {
         cy.wait(2000);
     })
 
-    it('verify list count', function() {
+    // it('verify list count', function() {
 
-        cy.get('img[class="user-avatar ng-star-inserted"]').click();
-        cy.contains('View Profile').click();
+    //     cy.get('img[class="user-avatar ng-star-inserted"]').click();
+    //     cy.contains('View Profile').click();
 
-        cy.get('span[class="count ng-star-inserted"]').eq(1).click();
+    //     cy.get('span[class="count ng-star-inserted"]').eq(1).click();
 
-        cy.get('div[class="list-data-container').first().should('contain', counter);
+    //     cy.get('div[class="list-data-container').first().should('contain', counter);
 
-        cy.get('img[class="likewise-logo"]').click();
+    //     cy.get('img[class="likewise-logo"]').click();
 
-    })
+    // })
 
     it('change list type of list private vs public', function(){
 
