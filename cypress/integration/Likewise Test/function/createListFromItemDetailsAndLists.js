@@ -42,9 +42,7 @@ describe('Creat new list from two path', function(){
         cy.get('button[class="create-list-button ng-star-inserted"]').click();
 
         cy.wait(1000);
-
         cy.logOut();
-
 
 	})
 
@@ -71,10 +69,8 @@ describe('Creat new list from two path', function(){
         cy.get('button[class="create-list-button ng-star-inserted"]').click();
 
         cy.wait(1000);
-
         cy.logOut();
 
 	})
-
 
 })
