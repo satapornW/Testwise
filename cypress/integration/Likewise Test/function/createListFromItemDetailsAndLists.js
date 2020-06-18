@@ -38,10 +38,10 @@ describe('Creat new list from two path', function(){
 
         cy.wait(1500);
         cy.get('textarea[name="title"]').focus().type(date + 'list from item');
-        cy.wait(2000);
+        cy.wait(1000);
         cy.get('button[class="create-list-button ng-star-inserted"]').click();
 
-        cy.wait(2000);
+        cy.wait(1000);
 
         cy.logOut();
 
@@ -67,10 +67,10 @@ describe('Creat new list from two path', function(){
 
         cy.wait(1500);
         cy.get('textarea[name="title"]').focus().type(date + 'list from list');
-        cy.wait(2000);
+        cy.wait(1000);
         cy.get('button[class="create-list-button ng-star-inserted"]').click();
 
-        cy.wait(2000);
+        cy.wait(1000);
 
         cy.logOut();
 
