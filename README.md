@@ -25,7 +25,8 @@ Each section focuses on each of the components of the website.
 	- Settings (Won't do)
 		- Delete profile
 		- Password change 
-		- Change email  
+		- Change email
+	- Inbox (follow, like, comment) (Done) 
 - Core functions (In no particular order)
 	- Recommend items w/ tips (Done)
 	- Follow other users (Done)
