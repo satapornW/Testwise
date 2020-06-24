@@ -33,7 +33,6 @@ var bio = "Here is my bio, from the machine";
 
 describe('new user', function(){
 
-
 	it('create new user', function(){
 
 		//Create new user
