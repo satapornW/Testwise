@@ -43,10 +43,11 @@ Each section focuses on each of the components of the website.
 	- Reply to comment
 - Special and Edge Cases (Can be automated, but it is not core function)
 	- Register -> Auto follow (Done)
-	- Logged out state and ask interaction ()
+	- Logged out state and ask interaction (To do)
 	- Login at items/list/ask stay in place & carry over actions (rec/save)
+	- Logged out -> saved -> register (Done)
 	- Undoing actions
-	- Message and notifications
+	- Message and notifications (Done)
 
 Reusable functions are stored in support.js , eg simpleLogIn, logOut, startUp
 
