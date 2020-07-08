@@ -6,7 +6,7 @@ cd to cypress
 ./node_modules/.bin/cypress open
 
 Run headless
-./node_modules/.bin/cypress run --headless
+./node_modules/.bin/cypress run --headless --browser chrome
 
 Each section focuses on each of the components of the website.
 
@@ -33,6 +33,8 @@ Each section focuses on each of the components of the website.
 	- Saves items (Done)
 	- Save lists (Done)
 	- create list (Done)
+	- Edit list (To Do)
+	- Remove item from list (To Do)
 	- Create ask (Done)
 		- Add to ask
 		- Agree to ask
@@ -43,10 +45,10 @@ Each section focuses on each of the components of the website.
 	- Reply to comment
 - Special and Edge Cases (Can be automated, but it is not core function)
 	- Register -> Auto follow (Done)
-	- Logged out state and ask interaction ()
+	- Logged out state and ask interaction (To do)
 	- Login at items/list/ask stay in place & carry over actions (rec/save)
-	- Undoing actions
-	- Message and notifications
+	- Logged out -> saved -> register (Done)
+	- Message and notifications (Done)
 
 Reusable functions are stored in support.js , eg simpleLogIn, logOut, startUp
 
