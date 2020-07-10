@@ -33,7 +33,7 @@ describe('setup', function(){
 
 		cy.get('p[class="list-field"]').last().click({force: true});
 	    cy.contains('@dsdk_sdkj');
-		cy.contains('@android_chrome_2457');
+		cy.contains('@android_chrome_1');
 		cy.contains('@some_varity'); //Missed spelled variety
 		cy.contains('@tuesday_morning_');
 		cy.contains('@ank_kfjj');

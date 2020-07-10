@@ -133,9 +133,9 @@ describe('Items details', function() {
         cy.get('div[class="location-container ng-star-inserted"]').should('contain', '820 Pike ST,  Seattle');
         
         //Check for Recommended by as requried by product specs
-        cy.get('img[title="Android Chromesedit"]').first().click({force: true});
+        cy.get('img[title="Android Chromes"]').first().click({force: true});
         cy.wait(2000);
-        cy.get('h1[class="user-name ng-star-inserted"]').should('contain', ' Android Chromesedit ');
+        cy.get('h1[class="user-name ng-star-inserted"]').should('contain', ' Android Chromes ');
         //cy.get('button[class="follow-button disabled ng-star-inserted"]').should('contain', 'Following');
         cy.logOut();
 
@@ -162,9 +162,9 @@ describe('Items details', function() {
         cy.get('h1[class="user-name ng-star-inserted"]').should('contain', ' Solvan9 ');
         cy.go('back');
 
-        cy.get('img[title="Android Chromesedit"]');
-        cy.get('img[title="Android Chromesedit"]').first().click({force: true});
-        cy.get('h1[class="user-name ng-star-inserted"]').should('contain', ' Android Chromesedit ');
+        // cy.get('img[title="Android Chromes"]');
+        cy.get('img[title="Android Chromes"]').first().click({force: true});
+        cy.get('h1[class="user-name ng-star-inserted"]').should('contain', ' Android Chromes ');
 
         cy.logOut();
 
