@@ -21,7 +21,7 @@ var itemPath = [ "shows/63247",
             ]
 
 
-describe('Creat new list from two path', function(){
+describe('Test Creat New List 1', function(){
 
 	it('Create new list from item details', function(){
 
@@ -29,7 +29,11 @@ describe('Creat new list from two path', function(){
 		cy.startUp();
         cy.simpleLogIn(json.users.main.name, json.users.main.password);
 
-        cy.visit('/' + itemPath[0]);
+        cy.visit('/' + itemPath[1], {
+            header:{
+                "Accept-Encoding": "gzip, deflate"
+            }
+        });
         cy.get('img[class="for-item-details desktop ng-star-inserted"]').first().click({force: true});
         cy.wait(1000);
 
@@ -45,6 +49,9 @@ describe('Creat new list from two path', function(){
         cy.logOut();
 
 	})
+})
+
+describe('Test Create New List 2', function(){
 
 	it('Create new list from list details', function() {
 
