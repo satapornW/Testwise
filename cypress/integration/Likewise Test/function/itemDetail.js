@@ -39,18 +39,23 @@ describe('Items details', function() {
         cy.visit('/' + itemPath[i]);
         cy.get(rec).first().click();
         // cy.wait(500);
-        cy.get('button[class="lw-btn facebook mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
-        cy.get('button[class="lw-btn google mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
-        cy.get('button[class="lw-btn email mat-flat-button"]').should('contain', "Continue with email");
-        cy.get('button[class="close mat-icon-button"]').click();
+        cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
+        cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
+        cy.get('button[class="lw-btn email rounded mat-flat-button"]').should('contain', "Continue with email");
+        
+        //click outside of the modal
+        cy.get('div[class="cdk-overlay-backdrop lw-dialog-backdrop cdk-overlay-backdrop-showing"]').click('topLeft', {force: true});
+        
         cy.wait(500);
 
         //save modal check 
         cy.get('img[class="save item-page-icon"]').first().click();
-        cy.get('button[class="lw-btn facebook mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
-        cy.get('button[class="lw-btn google mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
-        cy.get('button[class="lw-btn email mat-flat-button"]').should('contain', "Continue with email");
-        cy.get('button[class="close mat-icon-button"]').click();
+        cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
+        cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
+        cy.get('button[class="lw-btn email rounded mat-flat-button"]').should('contain', "Continue with email");
+        
+        cy.get('div[class="cdk-overlay-backdrop lw-dialog-backdrop cdk-overlay-backdrop-showing"]').click('topLeft', {force: true});
+
         cy.wait(500);
 
         //share modal check
