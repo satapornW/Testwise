@@ -37,21 +37,21 @@ describe('new user', function(){
 
 		//Create new user
 
-		cy.visit('/');
+		cy.startUp();
 		cy.contains('Sign Up').click();
-		cy.get('button[class="lw-btn email mat-flat-button"]').click();
+		cy.get('button[class="lw-btn email rounded mat-flat-button"]').click();
 
 		cy.get('input[name="firstName"]').focus().type(firstName);
-		cy.wait(400);
+		cy.wait(700);
 		cy.get('input[name="lastName"]').focus().type(lastName);
-		cy.wait(400);
+		cy.wait(700);
 		cy.get('input[name="email"]').focus().type(email);
-		cy.wait(400);
+		cy.wait(700);
 		cy.get('input[name="password"]').focus().type(password);
-		cy.wait(400);
+		cy.wait(700);
 		cy.get('input[name="confirmPassword"]').focus().type(password);
 
-		cy.get('button[id="signUpBtn"]').click({force:true});
+		cy.get('button[class="lw-btn secondary rounded mat-flat-button primary"]').focus().click({force:true});
 
 		// Onboard
 		cy.get('button[class="stepper-next mat-ripple"]').first().click();

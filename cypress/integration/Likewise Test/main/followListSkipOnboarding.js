@@ -31,7 +31,7 @@ describe('Register on a list', function(){
 
 		cy.contains('Save List').click();
 
-		cy.get('button[class="lw-btn email mat-flat-button"]').click();
+		cy.get('button[class="lw-btn email rounded mat-flat-button"]').click();
 
 		cy.get('input[name="firstName"]').focus().type(firstName);
 		cy.wait(400);
