@@ -35,7 +35,7 @@ Cypress.Commands.add('simpleLogIn', (email, password) => {
 	cy.contains('h1', 'Welcome Back');
 	cy.get('input[name="email"]').type(email);
 	cy.get('input[name="password"]').type(password);
-    cy.get('button[class="lw-btn align-center mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
+    cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
 
     //Validate that I actually login
     cy.wait(1000);
