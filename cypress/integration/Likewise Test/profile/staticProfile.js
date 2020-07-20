@@ -5,7 +5,7 @@ var json = require('../variable.json');
 describe('System Test', function () {
     beforeEach(function () {
 
-        cy.viewport(1400, 720)
+        cy.viewport('macbook-15')
         cy.visit('https://testwise.azurewebsites.net')
 
         cy.server();
@@ -32,12 +32,15 @@ describe('System Test', function () {
     })
     it('Verify Discovery', () => {
 
-        cy.viewport(1400, 720)
+        cy.viewport('macbook-15')
         // make sure the header is not visible
         cy.get('.header-wrapper').should('not.exist');
         // scroll to show the header
         cy.window().scrollTo(0, 500);
         // now the header should be visible
+
+        cy.get('button[class="no-thanks"]').click();
+
         cy.get('.header-wrapper').should('exist').should('be.visible');
         // cy.get('.home-list-container').within(() => {
         //     cy.get('.trending-headline').contains('Popular Lists on Likewise');
@@ -98,7 +101,7 @@ describe('System Test', function () {
         profileTitle.get('.user-name').contains('test late');
         profileTitle.get('.user-handle').contains('@test_late');
         // following count
-        cy.get('.following .network-count').should('contain', 24);
+        cy.get('.following .network-count').should('contain', 25);
         // followers count
         cy.get('.followers .network-count').should('contain', 1);
         // switch to recs tab
