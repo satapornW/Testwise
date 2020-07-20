@@ -23,17 +23,17 @@ describe('login modal and action', function(){
 
 		cy.contains('Sign Up').click();
 		cy.contains('h1', 'Sign up to personalize your Likewise experience');
-		cy.get('button[class="lw-btn facebook mat-flat-button ng-trigger ng-trigger-loading"]').
+		cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').
 			should('contain', 'Continue with Facebook');
-		cy.get('button[class="lw-btn google mat-flat-button ng-trigger ng-trigger-loading"]').
+		cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').
 			should('contain', 'Continue with Google');
-		cy.get('button[class="lw-btn email mat-flat-button"]').
+		cy.get('button[class="lw-btn email rounded mat-flat-button"]').
 			should('contain', 'Continue with email');
 	})
 
 	it('Pick email Option', function(){
 
-		cy.get('button[class="lw-btn email mat-flat-button"]').click();
+		cy.get('button[class="lw-btn email rounded mat-flat-button"]').click();
 
 	})
 
