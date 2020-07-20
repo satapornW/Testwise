@@ -42,7 +42,7 @@ describe('new user', function(){
 
 		cy.visit('https://testwise.azurewebsites.net');
 		cy.contains('Sign Up').click();
-		cy.get('button[class="lw-btn email mat-flat-button"]').click();
+		cy.get('button[class="lw-btn email rounded mat-flat-button"]').click();
 
 		cy.get('input[name="firstName"]').focus().type(firstName);
 		cy.get('input[name="lastName"]').focus().type(lastName);
