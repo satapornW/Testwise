@@ -20,6 +20,8 @@ describe('login modal and action', function(){
 			should('contain', 'Continue with Facebook');
 		cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').
 			should('contain', 'Continue with Google');
+		cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').
+			should('contain', 'Continue with Apple');
 	})
 
 	it('Invalid password', function(){
