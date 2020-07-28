@@ -3,9 +3,11 @@ Automation test for testwise
 How to run cypress:
 
 cd to cypress
+Running individual test with visual 
 ./node_modules/.bin/cypress open
 
 Run headless
+Running all test test, no visual
 ./node_modules/.bin/cypress run --headless --browser chrome
 
 Each section focuses on each of the components of the website.
