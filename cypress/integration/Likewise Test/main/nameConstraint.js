@@ -22,18 +22,17 @@ describe('login modal and action', function(){
 	it('Register components existis', () => {
 
 		cy.contains('Sign Up').click();
-		cy.contains('h1', 'Sign up to personalize your Likewise experience');
+		cy.contains('h1', 'Sign Up for Likewise for Personalized Picks!');
 		cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').
 			should('contain', 'Continue with Facebook');
 		cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').
 			should('contain', 'Continue with Google');
-		cy.get('button[class="lw-btn email rounded mat-flat-button"]').
-			should('contain', 'Continue with email');
+		cy.contains('Continue with email');
 	})
 
 	it('Pick email Option', function(){
 
-		cy.get('button[class="lw-btn email rounded mat-flat-button"]').click();
+		cy.contains('Continue with email').click();
 
 	})
 
@@ -46,12 +45,6 @@ describe('login modal and action', function(){
 		checkSpecial("Test]");
 		checkSpecial("Test!=)");
 
-	})
-
-	it('Incorrect prevent signup', function(){
-
-		
-		
 	})
 
 

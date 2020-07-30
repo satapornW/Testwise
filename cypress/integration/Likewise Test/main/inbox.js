@@ -39,7 +39,7 @@ describe('new user', function(){
 
 		cy.startUp();
 		cy.contains('Sign Up').click();
-		cy.get('button[class="lw-btn email rounded mat-flat-button"]').click();
+		cy.contains('Continue with email').click();
 
 		cy.get('input[name="firstName"]').focus().type(firstName);
 		cy.wait(700);
@@ -54,6 +54,10 @@ describe('new user', function(){
 		cy.get('button[class="lw-btn secondary rounded mat-flat-button primary"]').focus().click({force:true});
 
 		// Onboard
+		cy.get('button[class="lw-btn secondary rounded mat-flat-button"]').click();
+		cy.wait(1000)
+		//Next
+
 		cy.get('button[class="stepper-next mat-ripple"]').first().click();
 
 		cy.get('input[name="locationInput"]').click();
@@ -119,5 +123,9 @@ describe('new user', function(){
 		cy.get('a[class="notification-text pointer"]').eq(0).should('contain', 'commented on your recommendation');
 
 	})
+
+	//log back in witht he new user and perform create list
+
+	//log in to automation and check inbox for a list being created by someone you follow
 
 })
