@@ -127,5 +127,4 @@ describe('Switch sign-up to login', function(){
 	    cy.get('button[class="create-new-button"]').should('contain', 'Create New');
 	})
 
-
 })
