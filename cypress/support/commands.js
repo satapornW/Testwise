@@ -26,6 +26,48 @@
 
 var json = require('../integration/Likewise Test/variable.json');
 
+Cypress.Commands.add('register', (firstName, lastName, email, password) =>{
+
+    
+    cy.contains('Continue with email').click();
+
+    cy.get('input[name="firstName"]').focus().type(firstName);
+    cy.wait(700);
+    cy.get('input[name="lastName"]').focus().type(lastName);
+    cy.wait(700);
+    cy.get('input[name="email"]').focus().type(email);
+    cy.wait(700);
+    cy.get('input[name="password"]').focus().type(password);
+    cy.wait(700);
+    cy.get('input[name="confirmPassword"]').focus().type(password);
+
+    cy.get('button[class="lw-btn secondary rounded mat-flat-button primary"]').focus().click({force:true});
+    cy.wait(1000);
+
+})
+
+Cypress.Commands.add('onboard', () => {
+ 
+    cy.get('button[class="lw-btn secondary rounded mat-flat-button"]').click();
+    cy.wait(1000);
+    
+    //Next
+    cy.get('button[class="stepper-next mat-ripple"]').first().click();
+
+    cy.get('input[name="locationInput"]').click();
+    cy.get('textarea[name="bio"]').type("Here is my bio, from the machine");
+    cy.get('button[class="stepper-next complete-from-profile mat-ripple ng-star-inserted"]').click();
+    cy.get('button[class="category-tile ng-star-inserted"]').first().click();
+
+    //Pick 15 for movies
+    for (var i = 0; i < 15; i++){
+        cy.get('button[class="item-tile ng-star-inserted"]').eq(i).click();
+    }
+
+    //Connfirm and submit
+    cy.contains('Save and continue').click({force: true});
+    cy.wait(5000);
+})
 
 Cypress.Commands.add('simpleLogIn', (email, password) => {
 

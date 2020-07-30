@@ -30,36 +30,8 @@ describe('Register on a list', function(){
 
 		cy.contains('Save List').click();
 
-		cy.get('button[class="lw-btn email rounded mat-flat-button"]').click();
-
-		cy.get('input[name="firstName"]').focus().type(firstName);
-		cy.wait(400);
-		cy.get('input[name="lastName"]').focus().type(lastName);
-		cy.wait(400);
-		cy.get('input[name="email"]').focus().type(email);
-		cy.wait(400);
-		cy.get('input[name="password"]').focus().type(password);
-		cy.wait(400);
-		cy.get('input[name="confirmPassword"]').focus().type(password);
-
-		cy.get('button[id="signUpBtn"]').click({force:true});
-
-		// Onboard
-		cy.get('button[class="stepper-next mat-ripple"]').first().click();
-
-		cy.get('input[name="locationInput"]').click();
-		cy.get('textarea[name="bio"]').type(bio);
-		cy.get('button[class="stepper-next complete-from-profile mat-ripple ng-star-inserted"]').click();
-		cy.get('button[class="category-tile ng-star-inserted"]').first().click();
-
-		//Pick 15 for movies
-		for (var i = 0; i < 15; i++){
-			cy.get('button[class="item-tile ng-star-inserted"]').eq(i).click();
-		}
-
-		//Connfirm and submit
-		cy.contains('Save and continue').click({force: true});
-		cy.wait(5000);
+		cy.register(firstName, lastName, email, password);
+		cy.onboard();
 
 	})
 

@@ -23,7 +23,7 @@ var bio = "Here is my bio, from the machine";
 
 describe('Register on a list', function(){
 
-	it('Follow list -> Register', function(){
+	it('Follow list -> Register skip onboarding', function(){
 
 		//Create new user
 		cy.viewport('macbook-15');
@@ -31,22 +31,7 @@ describe('Register on a list', function(){
 
 		cy.contains('Save List').click();
 
-		cy.get('button[class="lw-btn email rounded mat-flat-button"]').click();
-
-		cy.get('input[name="firstName"]').focus().type(firstName);
-		cy.wait(400);
-		cy.get('input[name="lastName"]').focus().type(lastName);
-		cy.wait(400);
-		cy.get('input[name="email"]').focus().type(email);
-		cy.wait(400);
-		cy.get('input[name="password"]').focus().type(password);
-		cy.wait(400);
-		cy.get('input[name="confirmPassword"]').focus().type(password);
-
-		cy.get('button[id="signUpBtn"]').click({force:true});
-
-		// Onboard
-		cy.get('a[class="stepper-close"]').first().click();
+		cy.register(firstName, lastName, email, password);
 
 	})
 

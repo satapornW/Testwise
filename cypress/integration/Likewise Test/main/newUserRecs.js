@@ -2,7 +2,7 @@
 
 function makeid(length) {
    var result           = '';
-   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var characters       = 'abcdefghijklmnopqrstuvwxyz0123456789';
    var charactersLength = characters.length;
    for ( var i = 0; i < length; i++ ) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -39,35 +39,12 @@ describe('new user', function(){
 	it('create new user', function(){
 
 		//Create new user
-
-		cy.visit('https://testwise.azurewebsites.net');
+		cy.startUp();
+		cy.wait(500)
 		cy.contains('Sign Up').click();
-		cy.get('button[class="lw-btn email rounded mat-flat-button"]').click();
-
-		cy.get('input[name="firstName"]').focus().type(firstName);
-		cy.get('input[name="lastName"]').focus().type(lastName);
-		cy.get('input[name="email"]').focus().type(email);
-		cy.get('input[name="password"]').focus().type(password);
-		cy.get('input[name="confirmPassword"]').focus().type(password);
-
-		cy.get('button[id="signUpBtn"]').click();
-
-		// Onboard
-		cy.get('button[class="stepper-next mat-ripple"]').first().click();
-
-		cy.get('input[name="locationInput"]').click();
-		cy.get('textarea[name="bio"]').type(bio);
-		cy.get('button[class="stepper-next complete-from-profile mat-ripple ng-star-inserted"]').click();
-		cy.get('button[class="category-tile ng-star-inserted"]').first().click();
-
-		//Pick 15 for movies
-		for (var i = 0; i < 15; i++){
-			cy.get('button[class="item-tile ng-star-inserted"]').eq(i).click();
-		}
-
-		//Connfirm and sumbit
-		cy.contains('Save and continue').click({force: true});
-		cy.wait(5000);
+		cy.wait(500)
+		cy.register(firstName, lastName, email, password);
+		cy.onboard();
 
 		//Find Logout button and click
 		cy.logOut();
