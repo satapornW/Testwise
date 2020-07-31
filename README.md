@@ -11,7 +11,7 @@ Running all test test, no visual
 ./node_modules/.bin/cypress run --headless --browser chrome
 
 ![image of sample result]
-(https://github.com/satapornW/Testwise/blob/master/Screen%20Shot%202020-07-31%20at%208.27.39%20AM.png)
+(https://github.com/satapornW/Testwise/Screen%20Shot%202020-07-31%20at%208.27.39%20AM.png)
 
 Each section focuses on each of the components of the website.
 
