@@ -1,4 +1,5 @@
 {
-    "chromeWebSecurity": false,
-    "baseUrl": "https://testwise.azurewebsites.net"
+  "chromeWebSecurity": false,
+  "baseUrl": "https://testwise.azurewebsites.net",
+  "projectId": "eade5u"
 }
