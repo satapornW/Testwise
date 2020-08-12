@@ -1,4 +1,4 @@
-
+//Look at a satic profile
 
 var json = require('../variable.json');
 
