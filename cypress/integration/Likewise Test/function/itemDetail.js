@@ -38,22 +38,27 @@ describe('Items details', function() {
     for (var i = 0; i < itemPath.length; i = i + 2){
         cy.visit('/' + itemPath[i]);
         cy.get(rec).first().click();
-        // cy.wait(500);
+        
+        //Check rec modal for signin option
+        cy.wait(500);
         cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
         cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
-        cy.get('button[class="lw-btn email rounded mat-flat-button"]').should('contain', "Continue with email");
+        cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Apple");
+        cy.contains('Continue with email').should('contain', "Continue with email");
         
         //click outside of the modal
         cy.get('div[class="cdk-overlay-backdrop lw-dialog-backdrop cdk-overlay-backdrop-showing"]').click('topLeft', {force: true});
         
         cy.wait(500);
-
         //save modal check 
         cy.get('img[class="save item-page-icon"]').first().click();
         cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
         cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
-        cy.get('button[class="lw-btn email rounded mat-flat-button"]').should('contain', "Continue with email");
-        
+        cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Apple");
+        cy.contains('Continue with email').should('contain', "Continue with email");
+
+
+        //close the modal
         cy.get('div[class="cdk-overlay-backdrop lw-dialog-backdrop cdk-overlay-backdrop-showing"]').click('topLeft', {force: true});
 
         cy.wait(500);
@@ -158,17 +163,23 @@ describe('Items details', function() {
         cy.get('div[class="location-container ng-star-inserted"]').should('contain', '4983, 37 103rd Avenue Northeast B, Bellevue');
         
         //Check for Recommended by as requried by product specs
+        cy.wait(500);
         cy.get('img[title="Manu Kanwar"]').first().click({force: true});
+        cy.wait(500);
         cy.get('h1[class="user-name ng-star-inserted"]').should('contain', ' Manu Kanwar ');
         cy.go('back');
 
-        
-        cy.get('img[title="Solvan9 "]').first().click({force: true});
+        //Check for this user, which is weird because the default has changed
+        cy.wait(500);
+        cy.get('span[class="initials"]').first().click({force: true});
+        cy.wait(500);
         cy.get('h1[class="user-name ng-star-inserted"]').should('contain', ' Solvan9 ');
         cy.go('back');
 
         // cy.get('img[title="Android Chromes"]');
+        cy.wait(500);
         cy.get('img[title="Android Chromes"]').first().click({force: true});
+        cy.wait(500);
         cy.get('h1[class="user-name ng-star-inserted"]').should('contain', ' Android Chromes ');
 
         cy.logOut();
