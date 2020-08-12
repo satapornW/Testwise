@@ -2,7 +2,7 @@
 
 var json = require('../variable.json');
 
-describe('System Test', function () {
+describe('Profile test', function () {
     beforeEach(function () {
 
         cy.viewport('macbook-15')
@@ -30,42 +30,42 @@ describe('System Test', function () {
         // cy.viewport(1400, 720)
         // cy.visit('https://testwise.azurewebsites.net')
     })
-    it('Verify Discovery', () => {
+    // it('Verify Discovery', () => {
 
-        cy.viewport('macbook-15')
-        // make sure the header is not visible
-        cy.get('.header-wrapper').should('not.exist');
-        // scroll to show the header
-        cy.window().scrollTo(0, 500);
-        // now the header should be visible
+    //     cy.viewport('macbook-15')
+    //     // make sure the header is not visible
+    //     cy.get('.header-wrapper').should('not.exist');
+    //     // scroll to show the header
+    //     cy.window().scrollTo(0, 500);
+    //     // now the header should be visible
 
-        cy.get('button[class="no-thanks"]').click();
+    //     cy.get('button[class="no-thanks"]').click();
 
-        cy.get('.header-wrapper').should('exist').should('be.visible');
-        // cy.get('.home-list-container').within(() => {
-        //     cy.get('.trending-headline').contains('Popular Lists on Likewise');
-        //     cy.get('.home-trending-lists > div').should('have.length', 3);
-        //     //cy.wait(200);
-        //     cy.get('button.more').click();
-        //     cy.get('button.more').should('not.exist');
-        //     cy.get('.home-trending-lists > div').should('have.length', 6);
-        // });
+    //     cy.get('.header-wrapper').should('exist').should('be.visible');
+    //     // cy.get('.home-list-container').within(() => {
+    //     //     cy.get('.trending-headline').contains('Popular Lists on Likewise');
+    //     //     cy.get('.home-trending-lists > div').should('have.length', 3);
+    //     //     //cy.wait(200);
+    //     //     cy.get('button.more').click();
+    //     //     cy.get('button.more').should('not.exist');
+    //     //     cy.get('.home-trending-lists > div').should('have.length', 6);
+    //     // });
         
-        cy.get('.chitchat-container').within(() => {
-            cy.get('.chitchat-header').contains('What Likewisers are saying');
-            cy.get('.chitchat-cards').should('have.length', 3);
-        })
-        // popular on section
-        cy.get('.popular-on-section.trending-section').within(() => {
-            cy.get('.home-section-header').contains('Popular on Likewise');
-            for (let iter = 1; iter < 4; iter++) {
-                cy.get('app-trending-now-item').should('have.length', iter * 5);
-                cy.get('.more').should('exist');
-                cy.get('.more').click();
-            }
-            cy.get('.more').should('not.exist');
-        });
-    })
+    //     cy.get('.chitchat-container').within(() => {
+    //         cy.get('.chitchat-header').contains('What Likewisers are saying');
+    //         cy.get('.chitchat-cards').should('have.length', 3);
+    //     })
+    //     // popular on section
+    //     cy.get('.popular-on-section.trending-section').within(() => {
+    //         cy.get('.home-section-header').contains('Popular on Likewise');
+    //         for (let iter = 1; iter < 4; iter++) {
+    //             cy.get('app-trending-now-item').should('have.length', iter * 5);
+    //             cy.get('.more').should('exist');
+    //             cy.get('.more').click();
+    //         }
+    //         cy.get('.more').should('not.exist');
+    //     });
+    // })
     // it('Login - Facebook', function () {
     //  cy.window().then((win) => {
     //      // Replace window.open(url, target)-function with our own arrow function
@@ -92,7 +92,7 @@ describe('System Test', function () {
         let expectedListsCount = 7;
         let expectedAsksCount = 3;
         // verifying the tab labels
-        cy.wait(3000)
+        cy.wait(1000)
         cy.get("#mat-tab-label-0-1 .count").should('contain.text', expectedRecsCount);
         cy.get("#mat-tab-label-0-2 .count").should('contain.text', expectedListsCount);
         cy.get("#mat-tab-label-0-3 .count").should('contain.text', expectedAsksCount);
@@ -103,7 +103,7 @@ describe('System Test', function () {
         // following count
         cy.get('.following .network-count').should('contain', 25);
         // followers count
-        cy.get('.followers .network-count').should('contain', 1);
+        cy.get('.followers .network-count').should('contain', 2);
         // switch to recs tab
         
         cy.get("#mat-tab-label-0-1").click({ force: true });
