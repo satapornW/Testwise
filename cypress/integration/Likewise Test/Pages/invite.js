@@ -39,15 +39,7 @@ describe('Invite to auto follow', function(){
 
 		cy.get('button[class="sign-up-btn"]').click();
 
-		cy.contains('Continue with email').click();
-
-		cy.get('input[name="firstName"]').focus().type(firstName);
-		cy.get('input[name="lastName"]').focus().type(lastName);
-		cy.get('input[name="email"]').focus().type(email);
-		cy.get('input[name="password"]').focus().type(password);
-		cy.get('input[name="confirmPassword"]').focus().type(password);
-
-		cy.get('button[id="signUpBtn"]').click();
+		cy.register(firstName,lastName,email,password);
 
 		cy.wait(1000)
 
@@ -85,14 +77,23 @@ describe('Invite to auto follow', function(){
 
 	it('Validate following', function(){
 
-		cy.get('img[class="user-avatar ng-star-inserted"]').first().click();
-        cy.contains('View Profile').click();
+
+		/*Since the implementation of user coin,
+		we may need a better way to implement a better
+		way to click on the profile. 
+		*/
+		cy.get('span[class="initials"]').first().click();
+        cy.contains('View Profile').first().click();
 
         cy.wait(1000);
         cy.scrollTo(0,300);
 
         cy.get('button[class="following"]').click();
         cy.contains(json.users.main.userHandle)
+
+        cy.get('mat-icon[class="mat-icon notranslate material-icons mat-icon-no-color"]').click();
+
+        cy.logOut();
 
 	})
 
