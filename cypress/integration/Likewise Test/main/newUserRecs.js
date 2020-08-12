@@ -81,7 +81,7 @@ describe('Follow & Recommned & Save', function() {
 		//Follow a profile
 
 		//Follow a user
-		cy.visit('https://testwise.azurewebsites.net/profile/fire_fix');
+		cy.visit('https://testwise.azurewebsites.net/profile/fire_fixx');
 		cy.get('button[class="follow-button active ng-star-inserted"]').first().click();
 
 		//Check to see that user is actually follow
