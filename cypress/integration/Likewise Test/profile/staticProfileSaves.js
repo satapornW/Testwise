@@ -143,6 +143,7 @@ describe('Save and filter', function(){
 		cy.get('div[class="empty-save-list ng-star-inserted"]').should('contain','Start saving')
 			.and('contain', 'All saves are under the same tab.');
 
+		cy.logOut()
 
 	})
 
