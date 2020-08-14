@@ -26,7 +26,8 @@ function addItemToList(searchWord){
 
     cy.get('img[class="rec-icon ng-star-inserted"]').first().click(); //Have to do it twice for some weird reason 
     cy.get('img[class="rec-icon ng-star-inserted"]').first().click();
-    cy.get('button[class="active"]').contains("Add to list").focus().click('center',{force: true});
+    cy.wait(1000);
+    cy.get('button[class="active"]').click({force: true});
 
     counter++;
 }
@@ -107,9 +108,11 @@ describe('Create a list', function() {
     it('After list mod add item', function(){
 
         addItemToList("one");
+        cy.wait(500);
         cy.get('a[href="/books/xHdiAgAAQBAJ"]').should('contain','One Plus One');
         
         addItemToList("four");
+        cy.wait(500);
         cy.get('a[href="/books/HjIGAwAAQBAJ"]').should('contain','Four: A Divergent Collection');
 
         cy.wait(1000);
