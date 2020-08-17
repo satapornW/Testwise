@@ -65,7 +65,7 @@ describe('Create a list', function() {
   it('Create a list', function() {
 
     cy.startUp();
-    cy.simpleLogIn(json.users.main.name, json.users.main.password);
+    cy.simpleLogIn(json.users.main2.email, json.users.main2.password);
 
     //use this to create name for list and strings
     //date will be our list name to so it can increment and is unique
@@ -95,7 +95,7 @@ describe('Create a list', function() {
 
     it('verify list count', function() {
 
-        cy.get('img[class="user-avatar ng-star-inserted"]').click();
+        cy.get('div[class="avatar-coin ng-star-inserted"]').click();
         cy.contains('View Profile').click();
 
         cy.get('span[class="count ng-star-inserted"]').eq(1).click();
