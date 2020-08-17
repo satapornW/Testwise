@@ -12,7 +12,7 @@ function navigateToOtherProfile(name){
     cy.contains('People').click();
     cy.get('input[name="search"]').type(name).type('{enter}');
     cy.wait(1500);
-    cy.get('a[href*="/profile/auto_mation"]').click();
+    cy.get('a[href*="/profile/auto_mation_3397"]').click();
 
     cy.get('span[class="count ng-star-inserted"]').eq(2).click();
     cy.get('p[class="ask-text text-regular"]').first().should('contain', date).click();
@@ -35,7 +35,7 @@ describe('Create Ask', function() {
     it('Create ask', function() {
 
         cy.startUp();
-        cy.simpleLogIn(json.users.main.name, json.users.main.password);
+        cy.simpleLogIn(json.users.main2.email, json.users.main2.password);
 
         //use this to create name for list and strings 
 
@@ -104,18 +104,18 @@ describe('Create Ask', function() {
     it('Test edit ask', function(){
 
         cy.startUp();
-        cy.simpleLogIn(json.users.main.name, json.users.main.password);
+        cy.simpleLogIn(json.users.main2.email, json.users.main2.password);
 
         var editText = 'Edit ask test'
         var validate = date + editText;
 
-        cy.get('img[class="user-avatar ng-star-inserted"]').first().click();
+        cy.get('div[class="avatar-coin ng-star-inserted"]').first().click();
         cy.contains('View Profile').click();
 
         cy.get('span[class="count ng-star-inserted"]').eq(2).click();
         cy.get('p[class="ask-text text-regular"]').first().should('contain', date).click();
 
-        cy.get('img[alt="Menu icon"]').click({ force: true });
+        cy.get('img[alt="Menu icon"]').first().click({ force: true });
         cy.wait(500);
         cy.contains('Edit Request').click();
 
@@ -134,9 +134,9 @@ describe('Create Ask', function() {
     it('end ask', function(){
 
         cy.startUp();
-        cy.simpleLogIn(json.users.main.name, json.users.main.password);
+        cy.simpleLogIn(json.users.main2.email, json.users.main2.password);
 
-        cy.get('img[class="user-avatar ng-star-inserted"]').first().click();
+        cy.get('div[class="avatar-coin ng-star-inserted"]').first().click();
         cy.contains('View Profile').click();
 
         cy.get('span[class="count ng-star-inserted"]').eq(2).click();
