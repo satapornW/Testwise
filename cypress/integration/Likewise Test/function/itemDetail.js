@@ -1,6 +1,5 @@
 //item's details logged out state
 
-
 // set up global variables for icons and similar function across the board.
 
 var json = require('../variable.json');
@@ -35,45 +34,45 @@ describe('Items details', function() {
 
     // loop through each path in itemPath
     // Only do one for each category, to cut down the time. 
-    for (var i = 0; i < itemPath.length; i = i + 2){
-        cy.visit('/' + itemPath[i]);
-        cy.get(rec).first().click();
-        
-        //Check rec modal for signin option
-        cy.wait(500);
-        cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
-        cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
-        cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Apple");
-        cy.contains('Continue with email').should('contain', "Continue with email");
-        
-        //click outside of the modal
-        cy.get('div[class="cdk-overlay-backdrop lw-dialog-backdrop cdk-overlay-backdrop-showing"]').click('topLeft', {force: true});
-        
-        cy.wait(500);
-        //save modal check 
-        cy.get('img[class="save item-page-icon"]').first().click();
-        cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
-        cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
-        cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Apple");
-        cy.contains('Continue with email').should('contain', "Continue with email");
+        for (var i = 0; i < itemPath.length; i = i + 2){
+            cy.visit('/' + itemPath[i]);
+            cy.get(rec).first().click();
+            
+            //Check rec modal for signin option
+            cy.wait(500);
+            cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
+            cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
+            cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Apple");
+            cy.contains('Continue with email').should('contain', "Continue with email");
+            
+            //click outside of the modal
+            cy.get('div[class="cdk-overlay-backdrop lw-dialog-backdrop cdk-overlay-backdrop-showing"]').click('topLeft', {force: true});
+            
+            cy.wait(500);
+            //save modal check 
+            cy.get('img[class="save item-page-icon"]').first().click();
+            cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
+            cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
+            cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Apple");
+            cy.contains('Continue with email').should('contain', "Continue with email");
 
 
-        //close the modal
-        cy.get('div[class="cdk-overlay-backdrop lw-dialog-backdrop cdk-overlay-backdrop-showing"]').click('topLeft', {force: true});
+            //close the modal
+            cy.get('div[class="cdk-overlay-backdrop lw-dialog-backdrop cdk-overlay-backdrop-showing"]').click('topLeft', {force: true});
 
-        cy.wait(500);
+            cy.wait(500);
 
-        //share modal check
-        cy.get('img[class="for-item-details desktop ng-star-inserted"]').first().click({force: true});
-        cy.wait(1000);
-        cy.get('button[role="menuitem"]').click();
-        cy.get('div[id="share-links-wrapper"]').should('contain', 'Facebook');
-        cy.get('div[id="share-links-wrapper"]').should('contain', 'Twitter');
-        cy.get('div[id="share-links-wrapper"]').should('contain', 'LinkedIn');
-        cy.get('div[id="share-links-wrapper"]').should('contain', 'Pinterest');
-        cy.get('div[id="share-links-wrapper"]').should('contain', 'Email');
-        cy.get('div[id="share-links-wrapper"]').should('contain', 'Copy Link');
-    }
+            //share modal check
+            cy.get('img[class="for-item-details desktop ng-star-inserted"]').first().click({force: true});
+            cy.wait(1000);
+            cy.get('button[role="menuitem"]').click();
+            cy.get('div[id="share-links-wrapper"]').should('contain', 'Facebook');
+            cy.get('div[id="share-links-wrapper"]').should('contain', 'Twitter');
+            cy.get('div[id="share-links-wrapper"]').should('contain', 'LinkedIn');
+            cy.get('div[id="share-links-wrapper"]').should('contain', 'Pinterest');
+            cy.get('div[id="share-links-wrapper"]').should('contain', 'Email');
+            cy.get('div[id="share-links-wrapper"]').should('contain', 'Copy Link');
+        }
 
     //Interact with various components in item's detail page
     })
