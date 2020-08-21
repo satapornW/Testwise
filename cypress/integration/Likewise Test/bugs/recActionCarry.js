@@ -26,11 +26,12 @@ describe('rec->register', function() {
 		cy.startUp();
 		cy.visit('/' + 'shows/93514');
 
+		//rec item
 		cy.get('img[class="rec item-page-icon"]').first().click();
 		cy.register(firstName, lastName, email, password);
 		cy.wait(1000);
 
-		cy.get('button[class="post-rec-cta"]').click();
+		cy.get('button[class="post-rec-cta"]').click({force: true});
 
 		//validate rec
 		cy.wait(3000);
@@ -43,21 +44,26 @@ describe('rec->register', function() {
 
 	})
 
-	it('rec -> login -> validate save', function(){
+	it('rec -> login -> validate rec', function(){
 
 		cy.visit('/' + 'shows/71711');
 
-		cy.get('img[class="save item-page-icon"]').first().click();
+		cy.get('img[class="rec item-page-icon"]').first().click();
 		cy.get('button[class="lw-link secondary"]').click();
 
 		cy.get('input[name="email"]').type(email);
 		cy.get('input[name="password"]').type(password);
 	    cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
 
-		cy.get('img[mattooltip="Saved"]').click({force: true});
-		cy.get('div[class="trending-text"]').should('contain', 'Ask the Doctor');
+	    cy.get('button[class="post-rec-cta"]').click({force: true});
+		
+		cy.wait(3000);
+		cy.get('div[class="avatar-coin ng-star-inserted"]').first().click();
+        cy.contains('View Profile').click();
 
-		cy.wait(2000);
+        cy.get('span[class="count ng-star-inserted"]').should('contain', '2');
+
+		cy.wait(1000);
 		cy.logOut();
 
 
