@@ -29,7 +29,7 @@ describe('Invite to auto follow', function(){
 
 		//Open link to automation profile 
 		//invitedby/5e5eadc598473a001f7aeaa7
-
+		cy.startUp();
 		cy.visit('/' + 'invitedby/5e5eadc598473a001f7aeaa7');
 
 		cy.wait(500);
