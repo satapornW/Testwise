@@ -23,19 +23,22 @@ describe('Create new create state behavior', function(){
 
 		//Create new -> rec and item -> search for the same item -> validate megaphone state
 		cy.startUp();
-		cy.wait(500)
+		cy.wait(500);
+		cy.scrollTo(0, 500);
+		cy.get('button[class="no-thanks"]').click();
 		cy.contains('Sign Up').click();
 		cy.wait(500)
 		cy.register(firstName, lastName, email, password);
 
 		//Create new
-		cy.get('button[class="create-new-button"]').click();
+		cy.get('button[class="mat-menu-trigger create-new-button"]').click();
 		cy.contains('Recommendation').click();
 		cy.get('button[class="category-tile ng-star-inserted"]').eq(0).click();
 		//cy.get('create-search[class="ng-star-inserted"]').eq(0).click();
 		
 		//cy.get('input[name="search"]').first().focus().type('house', { force: true });
 		cy.get('form.ng-pristine > .ng-pristine').type('house').type('{enter}');
+		cy.wait(1000);
 		
 		cy.get('img[class="rec-icon ng-star-inserted"]').first().click(); //Have to do it twice for some weird reason 
     	cy.get('img[class="rec-icon ng-star-inserted"]').first().click();
@@ -45,7 +48,7 @@ describe('Create new create state behavior', function(){
 
     	//Validate that the icon is active
     	cy.wait(1000);
-    	cy.get('button[class="create-new-button"]').click();
+    	cy.get('button[class="mat-menu-trigger create-new-button"]').click();
 		cy.contains('Recommendation').click();
 		cy.get('button[class="category-tile ng-star-inserted"]').eq(0).click();
 		cy.get('input[name="search"]').first().focus().type('house', { force: true });
@@ -54,21 +57,17 @@ describe('Create new create state behavior', function(){
 		//look for the filled icon
 		cy.get('img[src="/assets/images/icons/recommend_fill_icon@2x.png"]');
 
-    	//Validate that you can unsaved from create new modal
+    	//Validate that you can unrec from create new modal
 
     	cy.get('img[src="/assets/images/icons/recommend_fill_icon@2x.png"]').click({ force: true });
     	cy.wait(500);
 
-    	cy.get('button[class="close mat-icon-button"]').click();
+    	cy.get('button[class="mat-focus-indicator close mat-icon-button mat-button-base"]').click();
 
     	//Navigate to profile
     	var pathToProfile = 'profile/' + firstName + '_' + lastName;
         cy.visit('/' + pathToProfile);
     	//check that it is empty.
     	cy.get('span[class="count ng-star-inserted"]').should('contain','');
-
 	})
-
-
-
 })
