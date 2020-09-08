@@ -24,7 +24,16 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-var json = require('../integration/Likewise Test/variable.json');
+// var json = require('../integration/Likewise Test/variable.json');
+
+Cypress.Commands.add('mainScreenByPass', () =>{
+
+    //This action my pass the pop up screen on the home-page
+
+    cy.scrollTo(0, 500);
+    cy.get('button[class="no-thanks"]').click();
+
+})
 
 Cypress.Commands.add('register', (firstName, lastName, email, password) =>{
 
@@ -40,8 +49,8 @@ Cypress.Commands.add('register', (firstName, lastName, email, password) =>{
     cy.get('input[name="password"]').focus().type(password);
     cy.wait(700);
     cy.get('input[name="confirmPassword"]').focus().type(password);
-
-    cy.get('button[class="lw-btn secondary rounded mat-flat-button primary"]').focus().click({force:true});
+    cy.wait(700);
+    cy.get('button[id="signUpBtn"]').focus().click({force:true});
     cy.wait(1000);
 
 })

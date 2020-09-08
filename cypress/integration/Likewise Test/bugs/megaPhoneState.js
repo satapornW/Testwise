@@ -24,8 +24,7 @@ describe('Create new create state behavior', function(){
 		//Create new -> rec and item -> search for the same item -> validate megaphone state
 		cy.startUp();
 		cy.wait(500);
-		cy.scrollTo(0, 500);
-		cy.get('button[class="no-thanks"]').click();
+		cy.mainScreenByPass();
 		cy.contains('Sign Up').click();
 		cy.wait(500)
 		cy.register(firstName, lastName, email, password);

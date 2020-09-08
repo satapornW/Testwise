@@ -4,6 +4,7 @@ describe('test server error code', function(){
 
 	it('list of list page, Likewise icon', function(){
 
+		cy.viewport('macbook-15');
 		cy.visit('/' + 'indoor-entertainment-guide/books/ISG/back-to-school');
 
 		cy.get('img[src="https://content-stage.likewiseapp.net/uploads/0a1b9a55-d635-4bd6-8555-0f2ebdd113a6/Likewise_official_icon.png"]')
