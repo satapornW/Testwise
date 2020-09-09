@@ -23,8 +23,9 @@ describe('rec->register', function() {
 
 	it('rec -> new register -> complete rec w/ tip', function(){
 
-		cy.startUp();
-		cy.visit('/' + 'shows/93514');
+		// cy.startUp();
+		cy.viewport('macbook-15');
+		cy.visit('/' + 'books/e_3cCgAAQBAJ');
 
 		//rec item
 		cy.get('img[class="rec item-page-icon"]').first().click();
@@ -37,8 +38,9 @@ describe('rec->register', function() {
 		cy.wait(3000);
 		cy.get('div[class="avatar-coin ng-star-inserted"]').click();
         cy.contains('View Profile').click();
+        
+        cy.get('span[class="count ng-star-inserted"]').first().should('contain', '1');
 
-        cy.get('span[class="count ng-star-inserted"]').should('contain', '1');
 
         cy.logOut();
 
@@ -46,14 +48,18 @@ describe('rec->register', function() {
 
 	it('rec -> login -> validate rec', function(){
 
+		cy.viewport('macbook-15');
 		cy.visit('/' + 'shows/71711');
 
+		//Rec button
 		cy.get('img[class="rec item-page-icon"]').first().click();
+
+		//sign in
 		cy.get('button[class="lw-link secondary"]').click();
 
 		cy.get('input[name="email"]').type(email);
-		cy.get('input[name="password"]').type(password);
-	    cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
+		cy.get('input[name="password"]').type(password).type('{enter}');
+	    //cy.contains(' Log In ').click();
 
 	    cy.get('button[class="post-rec-cta"]').click({force: true});
 		
@@ -61,7 +67,7 @@ describe('rec->register', function() {
 		cy.get('div[class="avatar-coin ng-star-inserted"]').first().click();
         cy.contains('View Profile').click();
 
-        cy.get('span[class="count ng-star-inserted"]').should('contain', '2');
+        cy.get('span[class="count ng-star-inserted"]').first().should('contain', '2');
 
 		cy.wait(1000);
 		cy.logOut();
