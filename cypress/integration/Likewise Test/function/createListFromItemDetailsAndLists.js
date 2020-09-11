@@ -27,13 +27,16 @@ describe('Test Creat New List 1', function(){
 
 
 		cy.startUp();
+        cy.wait(500);
+        cy.mainScreenByPass();
         cy.simpleLogIn(json.users.main.name, json.users.main.password);
 
-        cy.visit('/' + itemPath[1], {
-            header:{
-                "Accept-Encoding": "gzip, deflate"
-            }
-        });
+        cy.visit('/' + itemPath[1]);
+        // cy.visit('/' + itemPath[1], {
+        //     header:{
+        //         "Accept-Encoding": "gzip, deflate"
+        //     }
+        // });
         cy.get('img[class="for-item-details desktop ng-star-inserted"]').first().click({force: true});
         cy.wait(1000);
 
@@ -45,8 +48,12 @@ describe('Test Creat New List 1', function(){
         cy.wait(1000);
         cy.get('button[class="create-list-button ng-star-inserted"]').click();
 
+        /*
+        Will need to validate
+        */
+
         cy.wait(1000);
-        cy.logOut();
+        cy.logOutImage();
 
 	})
 })
@@ -55,7 +62,7 @@ describe('Test Create New List 2', function(){
 
 	it('Create new list from list details', function() {
 
-		cy.startUp();
+		cy.scrollTo(0, 500);
         cy.simpleLogIn(json.users.main.name, json.users.main.password);
 
     	cy.visit('/' + 'list/Book-Wednesday--5d2f94654b78991184d5b0f6');
@@ -75,8 +82,13 @@ describe('Test Create New List 2', function(){
         cy.wait(1000);
         cy.get('button[class="create-list-button ng-star-inserted"]').click();
 
+        
+        /*
+        Will need to validate
+        */
+
         cy.wait(1000);
-        cy.logOut();
+        cy.logOutImage();
 
 	})
 
