@@ -29,8 +29,9 @@ describe('Invite to auto follow', function(){
 
 		//Open link to automation profile 
 		//invitedby/5e5eadc598473a001f7aeaa7
-		cy.startUp();
-		cy.visit('/' + 'invitedby/5e5eadc598473a001f7aeaa7');
+		//https://testwise.azurewebsites.net/invitedby/auto_mation_3397
+		cy.viewport('macbook-15');
+		cy.visit('/' + 'invitedby/auto_mation_3397');
 
 		cy.wait(500);
 
@@ -61,12 +62,13 @@ describe('Invite to auto follow', function(){
 		cy.wait(500);
 		//cy.scrollTo('bottom', {duration: 10000, easing: 'swing',})
 		// cy.scrollTo('bottom');
-		cy.get('cdk-virtual-scroll-viewport[class="network-viewport cdk-virtual-scroll-viewport cdk-virtual-scroll-orientation-vertical"]').scrollTo('bottom');
+		//cy.get('cdk-virtual-scroll-viewport[class="network-viewport cdk-virtual-scroll-viewport cdk-virtual-scroll-orientation-vertical"]').scrollTo('bottom');
 		// cy.window().scrollTo('bottom')
 
 		var checkFollowers = "@" + firstName + "_" + lastName;
 		cy.contains(checkFollowers);
 
+		//close
 		cy.get('mat-icon[class="mat-icon notranslate material-icons mat-icon-no-color"]').click();
 
 
