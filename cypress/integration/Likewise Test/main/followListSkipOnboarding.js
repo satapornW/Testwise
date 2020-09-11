@@ -37,6 +37,7 @@ describe('Register on a list', function(){
 
 	it('Verify Following List', function(){
 
+		cy.viewport('macbook-15');
 		cy.get('button[id="follow-button"]').should('contain', 'Saved');
 		cy.get('a[class="lw-link"]').click();
 		cy.wait(1000);
