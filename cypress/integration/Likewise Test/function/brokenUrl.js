@@ -22,7 +22,6 @@ describe('Bad URL Test 2', function(){
 		cy.get('h1[class="error"]').should('contain', 'An Error has occurred loading list details');
 	
 	})
-
 })
 
 describe('Bad URL Test 3', function(){
@@ -33,5 +32,4 @@ describe('Bad URL Test 3', function(){
 		cy.get('h1[class="error"]').should('contain', 'An Error has occurred retrieving item details');
 	
 	})
-
 })
