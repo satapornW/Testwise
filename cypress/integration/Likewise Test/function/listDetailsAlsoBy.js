@@ -6,9 +6,12 @@ var json = require('../variable.json');
 
 //Email Login + Create a list 
 describe('More list by count check', function() {
+    
 	it('login and navigate to main list', function() {
 
 		cy.startUp();
+        cy.wait(500);
+        cy.mainScreenByPass();
 		cy.simpleLogIn(json.users.static.name, json.users.static.password);
 
 		cy.wait(3000);

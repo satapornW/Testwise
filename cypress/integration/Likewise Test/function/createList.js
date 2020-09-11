@@ -62,36 +62,39 @@ function addFromListToList(listPath, listName){
 
 //Email Login + Create a list 
 describe('Create a list', function() {
-  it('Create a list', function() {
+    
+    it('Create a list', function() {
 
-    cy.startUp();
-    cy.simpleLogIn(json.users.main2.email, json.users.main2.password);
+        cy.startUp();
+        cy.wait(500);
+        cy.mainScreenByPass();
+        cy.simpleLogIn(json.users.main2.email, json.users.main2.password);
 
-    //use this to create name for list and strings
-    //date will be our list name to so it can increment and is unique
+        //use this to create name for list and strings
+        //date will be our list name to so it can increment and is unique
 
-    cy.get('button[class="create-new-button"]').click();
-    cy.contains('Showcase your favorite things').click();
-    cy.get('[alt="book image"]').click();
+        cy.get('button[class="mat-menu-trigger create-new-button"]').click()
+        cy.contains('Showcase your favorite things').click();
+        cy.get('[alt="book image"]').click();
 
-    cy.get('[name="title"]').focus().type(date);
-    cy.get('button[class="create-list-button ng-star-inserted"]').click();
+        cy.get('[name="title"]').focus().type(date);
+        cy.get('button[class="create-list-button ng-star-inserted"]').click();
 
-    //Add item via main function
-    addItemToList("one");
-    addItemToList("two");
+        //Add item via main function
+        addItemToList("one");
+        addItemToList("two");
 
-    //Add item from item detail
-    addToListFromItem('books/U5M-rgEACAAJ', date);
-    addToListFromItem('books/FTrGc7m9udMC', date);
+        //Add item from item detail
+        addToListFromItem('books/U5M-rgEACAAJ', date);
+        addToListFromItem('books/FTrGc7m9udMC', date);
 
-    // //Add item from list to another
-    addFromListToList('list/Book-Wednesday--5d2f94654b78991184d5b0f6', date);
-    addFromListToList('list/Jay-Zs-Recommended-Books-5ba18251be7f550d1c3efff5', date);
+        // //Add item from list to another
+        addFromListToList('list/Book-Wednesday--5d2f94654b78991184d5b0f6', date);
+        addFromListToList('list/Jay-Zs-Recommended-Books-5ba18251be7f550d1c3efff5', date);
 
-    cy.wait(2000);
+        cy.wait(2000);
 
-  })
+    })
 
     it('verify list count', function() {
 

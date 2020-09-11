@@ -42,12 +42,12 @@ describe('Create Ask', function() {
         //use this to create name for list and strings 
 
         //Create a new ask attempt
-        cy.get('button[class="mat-menu-trigger create-new-button"]').click()
-        cy.contains('Get ideas from your community').click()
-        cy.get('[alt="book image"]').click()
+        cy.get('button[class="mat-menu-trigger create-new-button"]').click();
+        cy.contains('Get ideas from your community').click();
+        cy.get('[alt="book image"]').click();
 
-        cy.get('[name="askDescription"]').focus().type(date)
-        cy.get('button[class="create-ask-button"]').click()
+        cy.get('[name="askDescription"]').focus().type(date);
+        cy.get('button[class="create-ask-button"]').click();
 
         //Validate Ask detail components
         cy.get('button[class="add-rec-button ng-star-inserted"]');
