@@ -40,20 +40,33 @@ describe('Items details', function() {
             
             //Check rec modal for signin option
             cy.wait(500);
-            cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
-            cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
-            cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Apple");
-            cy.contains('Continue with email').should('contain', "Continue with email");
             
+            // cy.get('button[class="mat-focus-indicator lw-btn facebook rounded ng-tns-c274-32 mat-flat-button mat-button-base ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
+            cy.contains(' Continue with Facebook ');
+            
+            //cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
+            cy.contains(' Continue with Google ');
+            
+            //cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Apple");
+            cy.contains(' Continue with Apple ');
+            
+            cy.contains('Continue with email').should('contain', "Continue with email");
+
             //click outside of the modal
             cy.get('div[class="cdk-overlay-backdrop lw-dialog-backdrop cdk-overlay-backdrop-showing"]').click('topLeft', {force: true});
             
             cy.wait(500);
             //save modal check 
             cy.get('img[class="save item-page-icon"]').first().click();
-            cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
-            cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
-            cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Apple");
+            //cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Facebook");
+            cy.contains(' Continue with Facebook ');
+
+            //cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Google");
+            cy.contains(' Continue with Google ');
+
+            //cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').should('contain', "Continue with Apple");
+            cy.contains(' Continue with Apple ');
+
             cy.contains('Continue with email').should('contain', "Continue with email");
 
 
@@ -72,6 +85,9 @@ describe('Items details', function() {
             cy.get('div[id="share-links-wrapper"]').should('contain', 'Pinterest');
             cy.get('div[id="share-links-wrapper"]').should('contain', 'Email');
             cy.get('div[id="share-links-wrapper"]').should('contain', 'Copy Link');
+
+            cy.get('div[class="cdk-overlay-backdrop lw-dialog-backdrop cdk-overlay-backdrop-showing"]').click('topLeft', {force: true});
+
         }
 
     //Interact with various components in item's detail page
@@ -133,6 +149,8 @@ describe('Items details', function() {
     it('Daawat Indian Grill & Bar', function(){
 
         cy.startUp();
+        cy.wait(500);
+        cy.mainScreenByPass();
         cy.simpleLogIn(json.users.support1.name, json.users.support1.password);
         cy.wait(2000);
 
@@ -146,13 +164,15 @@ describe('Items details', function() {
         cy.wait(2000);
         cy.get('h1[class="user-name ng-star-inserted"]').should('contain', ' Android Chromes ');
         //cy.get('button[class="follow-button disabled ng-star-inserted"]').should('contain', 'Following');
-        cy.logOut();
+        cy.logOutImage();
 
     })
 
     it('TLatte as a place', function(){
 
         cy.startUp();
+        cy.wait(500);
+        cy.mainScreenByPass();
         cy.simpleLogIn(json.users.support1.name, json.users.support1.password);
         cy.wait(2000);
 
@@ -181,7 +201,7 @@ describe('Items details', function() {
         cy.wait(500);
         cy.get('h1[class="user-name ng-star-inserted"]').should('contain', ' Android Chromes ');
 
-        cy.logOut();
+        cy.logOutImage();
 
     })
 
