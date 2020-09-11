@@ -13,25 +13,10 @@ function checkSpecial(name){
 
 describe('login modal and action', function(){
 
-	it('Set up', () => {
-
-		cy.startUp();
-        
-    })
-
-	it('Register components existis', () => {
-
-		cy.contains('Sign Up').click();
-		cy.contains('h1', 'Sign Up for Likewise for Personalized Picks!');
-		cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').
-			should('contain', 'Continue with Facebook');
-		cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').
-			should('contain', 'Continue with Google');
-		cy.contains('Continue with email');
-	})
-
 	it('Pick email Option', function(){
-
+		cy.startUp();
+		cy.mainScreenByPass();
+		cy.contains('Sign Up').click();
 		cy.contains('Continue with email').click();
 
 	})
@@ -46,6 +31,4 @@ describe('login modal and action', function(){
 		checkSpecial("Test!=)");
 
 	})
-
-
 })
