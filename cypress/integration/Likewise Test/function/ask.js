@@ -35,12 +35,14 @@ describe('Create Ask', function() {
     it('Create ask', function() {
 
         cy.startUp();
+        cy.wait(500);
+        cy.mainScreenByPass();
         cy.simpleLogIn(json.users.main2.email, json.users.main2.password);
 
         //use this to create name for list and strings 
 
         //Create a new ask attempt
-        cy.get('button[class="create-new-button"]').click()
+        cy.get('button[class="mat-menu-trigger create-new-button"]').click()
         cy.contains('Get ideas from your community').click()
         cy.get('[alt="book image"]').click()
 
@@ -56,13 +58,14 @@ describe('Create Ask', function() {
         cy.contains('h1', date);
 
         cy.wait(1000);
-        cy.logOut();
+        cy.logOutImage();
     })
 
     //Add recs to ask
     it('Add recommendation to ask', function(){
-
-        cy.startUp();
+        
+        cy.wait(500);
+        cy.scrollTo(0, 500);
         cy.simpleLogIn(json.users.support1.name, json.users.support1.password);
 
         //navigate to ask
@@ -73,14 +76,15 @@ describe('Create Ask', function() {
         addToAsk('iron man');
 
         cy.wait(1000);
-        cy.logOut();
+        cy.logOutImage();
 
     })
 
     //Agree to ask
     it('Agree to ask suggestions', function(){
 
-        cy.startUp();
+        cy.wait(500);
+        cy.scrollTo(0, 500);
         cy.simpleLogIn(json.users.support2.name, json.users.support2.password);
 
         navigateToOtherProfile('auto mation');
@@ -95,7 +99,7 @@ describe('Create Ask', function() {
         cy.get('p[class="rec-by ng-star-inserted"]').eq(1).should('contain', 'twenty and 1 others');
 
         cy.wait(1000);
-        cy.logOut();
+        cy.logOutImage();
         
     })
 
@@ -103,7 +107,8 @@ describe('Create Ask', function() {
     //Edit ask 
     it('Test edit ask', function(){
 
-        cy.startUp();
+        cy.wait(500);
+        cy.scrollTo(0, 500);
         cy.simpleLogIn(json.users.main2.email, json.users.main2.password);
 
         var editText = 'Edit ask test'
@@ -126,14 +131,16 @@ describe('Create Ask', function() {
         cy.wait(1000);
         cy.get('h1').should('contain',validate);
 
-        cy.logOut();
+        cy.logOutImage();
 
     })
 
     //Delete the ask
     it('end ask', function(){
 
-        cy.startUp();
+        
+        cy.wait(500);
+        cy.scrollTo(0, 500);
         cy.simpleLogIn(json.users.main2.email, json.users.main2.password);
 
         cy.get('div[class="avatar-coin ng-star-inserted"]').first().click();
@@ -150,7 +157,7 @@ describe('Create Ask', function() {
         cy.contains('OK').click();
         cy.get('button[class="add-rec-button ask-closed ng-star-inserted"]').should('contain', "Request Ended");
 
-        cy.logOut();
+        cy.logOutImage();
 
     })
 })
