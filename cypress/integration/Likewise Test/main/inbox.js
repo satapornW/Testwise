@@ -39,8 +39,9 @@ describe('new user', function(){
 
 		cy.startUp();
 		cy.wait(500);
+		cy.mainScreenByPass();
 		cy.contains('Sign Up').click();
-		cy.wait(500);
+		cy.wait(500)
 		cy.register(firstName, lastName, email, password);
 		cy.onboard();
 		
@@ -51,7 +52,7 @@ describe('new user', function(){
 
 	it('Follow, like, and comment', function(){
 
-		cy.startUp();
+		cy.scrollTo(0, 500);
 		cy.simpleLogIn(json.users.main.name, json.users.main.password);
 
 		// navigateToOtherProfile(firstName, lastName);
@@ -74,18 +75,18 @@ describe('new user', function(){
 		cy.get('button[class="submit-comment ng-star-inserted"]').first().click();
 
 		cy.wait(1000);
-		cy.logOut();
+		cy.logOutImage();
 
 	})
 
 	it('Verify notifications', function(){
 
-		cy.startUp();
+		cy.scrollTo(0, 500);
 		cy.simpleLogIn(email, password);
 		cy.wait(1000);
 
 		//Naviate to inbix
-		cy.get('div[class="lw-link mat-badge mat-badge-overlap mat-badge-above mat-badge-after mat-badge-medium"]').click();
+		cy.get('img[src="/assets/images/inbox_icon_header@2x.png"]').click({force: true});
 
 		//Verify 3 notifications
 		cy.get('a[class="notification-text"]').should('contain','is now following you');
