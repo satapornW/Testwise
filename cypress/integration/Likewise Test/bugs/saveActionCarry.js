@@ -22,7 +22,8 @@ describe('save carry over', function(){
 
 	it('save ->registration -> validate', function(){
 
-		cy.startUp();
+		// cy.startUp();
+		cy.viewport('macbook-15');
 		cy.visit('/' + 'shows/93514');
 
 		cy.get('img[class="save item-page-icon"]').first().click();
@@ -39,15 +40,16 @@ describe('save carry over', function(){
 
 	it('save -> login -> validate save', function(){
 
-		cy.startUp();
+		// cy.startUp();
+		// cy.wait(2000);
 		cy.visit('/' + 'shows/71711');
 
 		cy.get('img[class="save item-page-icon"]').first().click();
 		cy.get('button[class="lw-link secondary"]').click();
 
 		cy.get('input[name="email"]').type(email);
-		cy.get('input[name="password"]').type(password);
-	    cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
+		cy.get('input[name="password"]').type(password).type('{enter}');
+	    //cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
 
 	    cy.wait(2000);
 		cy.get('img[mattooltip="Saved"]').click({force: true});
