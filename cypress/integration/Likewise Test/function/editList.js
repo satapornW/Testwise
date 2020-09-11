@@ -34,15 +34,19 @@ function addItemToList(searchWord){
 
 //Email Login + Create a list 
 describe('Create a list', function() {
+    
     it('Create a list', function() {
 
         cy.startUp();
+        cy.wait(500);
+        cy.viewport('macbook-15');
+        cy.mainScreenByPass();
         cy.simpleLogIn(json.users.main2.email, json.users.main2.password);
 
         //use this to create name for list and strings
         //date will be our list name to so it can increment and is unique
 
-        cy.get('button[class="create-new-button"]').click();
+        cy.get('button[class="mat-menu-trigger create-new-button"]').click();
         cy.contains('Showcase your favorite things').click();
         cy.get('[alt="book image"]').click();
 
@@ -107,13 +111,14 @@ describe('Create a list', function() {
 
     it('After list mod add item', function(){
 
+
         addItemToList("one");
         cy.wait(500);
         cy.get('a[href="/books/xHdiAgAAQBAJ"]').should('contain','One Plus One');
         
         addItemToList("four");
         cy.wait(500);
-        cy.get('a[href="/books/HjIGAwAAQBAJ"]').should('contain','Four: A Divergent Collection');
+        cy.get('a[href="/books/H4K-DQAAQBAJ"]').should('contain','The Four Tendencies');
 
         cy.wait(1000);
 
