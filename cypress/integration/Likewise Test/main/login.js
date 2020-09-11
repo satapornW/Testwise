@@ -6,29 +6,30 @@ var password = json.users.main.password;
 
 describe('login modal and action', function(){
 
-	it('Set up', () => {
-
-		cy.startUp();
-        
-    })
-
 	it('Login components existis', () => {
-
-		cy.contains('Log in').click();
+		
+		cy.startUp();
+		cy.viewport('macbook-15');
+		cy.mainScreenByPass();
+		cy.contains('Log In').click();
 		cy.contains('h1', 'Welcome Back');
-		cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').
-			should('contain', 'Continue with Facebook');
-		cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').
-			should('contain', 'Continue with Google');
-		cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').
-			should('contain', 'Continue with Apple');
+		cy.contains(' Continue with Facebook ');
+		cy.contains(' Continue with Google ');
+        cy.contains(' Continue with Apple ');
+        
+		// cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').
+		// 	should('contain', 'Continue with Facebook');
+		// cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').
+		// 	should('contain', 'Continue with Google');
+		// cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').
+		// 	should('contain', 'Continue with Apple');
 
 	})
 
 	it('Invalid password', function(){
+
 		cy.get('input[name="email"]').type('accdc@yahoo.com');
-	    cy.get('input[name="password"]').type('11110000');
-	    cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
+	    cy.get('input[name="password"]').type('11110000').type('{enter}');
 	    
 	    cy.get('div[class="lw-label error mb-10px ng-star-inserted"]')
 	    	.should('contain',' The username and password you entered did not match our records. Please double-check and try again.');
@@ -41,8 +42,7 @@ describe('login modal and action', function(){
 	it('Invalid login', function(){
 
 		cy.get('input[name="email"]').type('apolsnn@losksooaj.ccoomm');
-	    cy.get('input[name="password"]').type('11110000');
-	    cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
+	    cy.get('input[name="password"]').type('11110000').type('{enter}');
 	    
 	    cy.get('div[class="lw-label error mb-10px ng-star-inserted"]')
 	    	.should('contain',' The username and password you entered did not match our records. Please double-check and try again.');
@@ -53,38 +53,29 @@ describe('login modal and action', function(){
 
 	it('Valid Login', function(){
 
+		cy.viewport('macbook-15');
 	    cy.get('input[name="email"]').type(email);
-	    cy.get('input[name="password"]').type(password);
-	    cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
+	    cy.get('input[name="password"]').type(password).type('{enter}');
 
 	    //Validate that I actually login
-	    cy.wait(2000);
-	    cy.get('button[class="create-new-button"]').should('contain', 'Create New');
-	    cy.logOut();
+	    cy.wait(1000);
+	    cy.viewport('macbook-15');
+	    cy.get('button[class="mat-menu-trigger create-new-button"]').should('contain', 'Create New');
+	    cy.logOutImage();
+
 	})
 })
 
 describe('Switch sign-up to login', function(){
 	
-	it('Set up', () => {
-		
-		cy.startUp();
-
-	})
-
 	it('init register modal and Validate', function(){
 
+		cy.startUp();
+		cy.mainScreenByPass();
 		cy.contains('Sign Up').click();
 
 		cy.get('h1[class="title signup"]').should('contain',' Sign Up for Likewise for Personalized Picks! ');
 
-		cy.get('button[class="lw-btn facebook rounded mat-flat-button ng-trigger ng-trigger-loading"]').
-			should('contain', 'Continue with Facebook');
-		cy.get('button[class="lw-btn google rounded mat-flat-button ng-trigger ng-trigger-loading"]').
-			should('contain', 'Continue with Google');
-		cy.get('button[class="lw-btn apple rounded mat-flat-button ng-trigger ng-trigger-loading"]').
-			should('contain', 'Continue with Apple');
-		cy.contains('Continue with email');
 
 		cy.get('button[class="lw-link secondary"]').should('contain', 'Sign In').click();
 
@@ -92,8 +83,7 @@ describe('Switch sign-up to login', function(){
 
 	it('Invalid password', function(){
 		cy.get('input[name="email"]').type('accdc@yahoo.com');
-	    cy.get('input[name="password"]').type('11110000');
-	    cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
+	    cy.get('input[name="password"]').type('11110000').type('{enter}');
 	    
 	    cy.get('div[class="lw-label error mb-10px ng-star-inserted"]')
 	    	.should('contain',' The username and password you entered did not match our records. Please double-check and try again.');
@@ -106,8 +96,7 @@ describe('Switch sign-up to login', function(){
 	it('Invalid login', function(){
 
 		cy.get('input[name="email"]').type('apolsnn@losksooaj.ccoomm');
-	    cy.get('input[name="password"]').type('11110000');
-	    cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
+	    cy.get('input[name="password"]').type('11110000').type('{enter}');
 	    
 	    cy.get('div[class="lw-label error mb-10px ng-star-inserted"]')
 	    	.should('contain',' The username and password you entered did not match our records. Please double-check and try again.');
@@ -119,12 +108,12 @@ describe('Switch sign-up to login', function(){
 	it('Valid Login', function(){
 
 	    cy.get('input[name="email"]').type(email);
-	    cy.get('input[name="password"]').type(password);
-	    cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
+	    cy.get('input[name="password"]').type(password).type('{enter}');
 
 	    //Validate that I actually login
 	    cy.wait(2000);
-	    cy.get('button[class="create-new-button"]').should('contain', 'Create New');
+	    cy.get('button[class="mat-menu-trigger create-new-button"]').should('contain', 'Create New');
+	    cy.logOutImage();
 	})
 
 })
