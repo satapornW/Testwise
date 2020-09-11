@@ -15,6 +15,7 @@ describe('homepage', function(){
         cy.get('.header-wrapper').should('not.exist');
         // scroll to show the header
         cy.window().scrollTo(0, 500);
+        cy.get('button[class="no-thanks"]').click();
         // now the header should be visible
         cy.get('.header-wrapper').should('exist').should('be.visible');
 
