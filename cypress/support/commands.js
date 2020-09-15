@@ -82,15 +82,15 @@ Cypress.Commands.add('simpleLogIn', (email, password) => {
 
     cy.viewport('macbook-15');
 
-	cy.contains('Log in').click();
+	cy.contains('Log In').click();
 	cy.contains('h1', 'Welcome Back');
 	cy.get('input[name="email"]').type(email);
-	cy.get('input[name="password"]').type(password);
-    cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
+	cy.get('input[name="password"]').type(password).type('{enter}');
+    // cy.get('button[class="lw-btn align-center secondary rounded mat-flat-button ng-trigger ng-trigger-loading primary"]').click();
 
     //Validate that I actually login
     cy.wait(1000);
-    cy.get('button[class="create-new-button"]').should('contain', 'Create New');
+    cy.get('button[class="mat-menu-trigger create-new-button"]').should('contain', 'Create New');
 })
 
 Cypress.Commands.add('logOut', () => {
