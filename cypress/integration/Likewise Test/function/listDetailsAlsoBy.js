@@ -12,6 +12,8 @@ describe('More list by count check', function() {
 		cy.startUp();
         cy.wait(500);
         cy.mainScreenByPass();
+        cy.viewport('macbook-15');
+        cy.wait(500);
 		cy.simpleLogIn(json.users.static.name, json.users.static.password);
 
 		cy.wait(3000);
