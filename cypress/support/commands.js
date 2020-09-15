@@ -95,13 +95,20 @@ Cypress.Commands.add('simpleLogIn', (email, password) => {
 
 Cypress.Commands.add('logOut', () => {
 
-	cy.get('button[class="ng-star-inserted"]').click();
+	cy.get('div[class="avatar-coin ng-star-inserted"]').first().click();
     cy.contains('Log Out').click();
     cy.wait(2000)
 
     //Validate logged out state
-    cy.get('button[class="sign-up-btn mat-ripple ng-star-inserted"]').should('contain', 'Sign Up');
-    cy.get('button[class="login-btn mat-ripple ng-star-inserted"]').should('contain', 'Log in');
+    // cy.get('button[class="sign-up-btn mat-ripple ng-star-inserted"]').should('contain', 'Sign Up');
+    // cy.get('button[class="login-btn mat-ripple ng-star-inserted"]').should('contain', 'Log in');
+})
+
+Cypress.Commands.add('logOutImage', () =>{
+    //user-avatar ng-star-inserted
+    cy.get('div[class="user-avatar ng-star-inserted"]').first().click();
+    cy.contains('Log Out').click();
+    cy.wait(2000)
 })
 
 Cypress.Commands.add('startUp', ()=> {
