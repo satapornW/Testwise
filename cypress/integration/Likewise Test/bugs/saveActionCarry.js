@@ -43,7 +43,7 @@ describe('save carry over', function(){
 		// cy.startUp();
 		// cy.wait(2000);
 		cy.visit('/' + 'shows/71711');
-
+		cy.wait(2000);
 		cy.get('img[class="save item-page-icon"]').first().click();
 		cy.get('button[class="lw-link secondary"]').click();
 
