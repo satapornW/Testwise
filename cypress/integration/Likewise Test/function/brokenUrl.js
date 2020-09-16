@@ -18,6 +18,7 @@ describe('Bad URL Test 2', function(){
 	it('Bad List URL', function(){
 
 		//cy.startUp();
+		cy.reload();
 		cy.visit('/' + badList);
 		cy.get('h1[class="error"]').should('contain', 'An Error has occurred loading list details');
 	
@@ -28,6 +29,7 @@ describe('Bad URL Test 3', function(){
 	it('Bad Movie URL', function(){
 
 		//cy.startUp();
+		cy.reload();
 		cy.visit('/' + badMovie);
 		cy.get('h1[class="error"]').should('contain', 'An Error has occurred retrieving item details');
 	
