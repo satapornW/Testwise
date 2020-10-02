@@ -57,15 +57,15 @@ Cypress.Commands.add('register', (firstName, lastName, email, password) =>{
 
 Cypress.Commands.add('onboard', () => {
  
-    cy.get('button[class="lw-btn secondary rounded mat-flat-button"]').click();
+    cy.get('button[class="mat-focus-indicator lw-btn secondary rounded mat-flat-button mat-button-base"]').click();
     cy.wait(1000);
     
     //Next
-    cy.get('button[class="stepper-next mat-ripple"]').first().click();
+    cy.get('button[class="mat-ripple stepper-next"]').first().click();
 
     cy.get('input[name="locationInput"]').click();
     cy.get('textarea[name="bio"]').type("Here is my bio, from the machine");
-    cy.get('button[class="stepper-next complete-from-profile mat-ripple ng-star-inserted"]').click();
+    cy.get('button[class="mat-ripple stepper-next complete-from-profile ng-star-inserted"]').click();
     cy.get('button[class="category-tile ng-star-inserted"]').first().click();
 
     //Pick 15 for movies
@@ -106,7 +106,7 @@ Cypress.Commands.add('logOut', () => {
 
 Cypress.Commands.add('logOutImage', () =>{
     //user-avatar ng-star-inserted
-    cy.get('div[class="user-avatar ng-star-inserted"]').first().click();
+    cy.get('img[class="user-avatar ng-star-inserted"]').first().click();
     cy.contains('Log Out').click();
     cy.wait(2000)
 })
