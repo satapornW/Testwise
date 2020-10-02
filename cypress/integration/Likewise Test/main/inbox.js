@@ -13,15 +13,6 @@ function makeid(length) {
    return result;
 }
 
-function navigateToOtherProfile(sirName, familyName){
-
-    cy.contains('People').click();
-    cy.get('input[name="search"]').type(sirName + " " + familyName).type('{enter}');
-    cy.wait(1500);
-    cy.get('a[href*="/profile/'+ sirName + "_" +familyName +'"]').click();
-
-}
-
 
 // Make a new login
 var firstName = makeid(4);
@@ -57,7 +48,7 @@ describe('new user', function(){
 
 		// navigateToOtherProfile(firstName, lastName);
 
-		navigateToOtherProfile(firstName, lastName);
+		cy.navigateToOtherProfile(firstName, lastName);
 
 		cy.wait(1500);
 
