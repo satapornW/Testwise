@@ -41,7 +41,7 @@ describe('Create a list', function() {
         cy.wait(500);
         cy.viewport('macbook-15');
         cy.mainScreenByPass();
-        cy.simpleLogIn(json.users.main2.email, json.users.main2.password);
+        cy.simpleLogIn(json.users.main2.name, json.users.main2.password);
 
         //use this to create name for list and strings
         //date will be our list name to so it can increment and is unique
