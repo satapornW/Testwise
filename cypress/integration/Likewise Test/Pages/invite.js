@@ -61,9 +61,11 @@ describe('Invite to auto follow', function(){
 		cy.get('button[class="followers"]').click();
 		cy.wait(500);
 		//cy.scrollTo('bottom', {duration: 10000, easing: 'swing',})
+		// cy.get('div[class="cdk-virtual-scroll-content-wrapper"]').scrollTo('bottom');
 		// cy.scrollTo('bottom');
 		//cy.get('cdk-virtual-scroll-viewport[class="network-viewport cdk-virtual-scroll-viewport cdk-virtual-scroll-orientation-vertical"]').scrollTo('bottom');
 		// cy.window().scrollTo('bottom')
+		cy.get('cdk-virtual-scroll-viewport[class="cdk-virtual-scroll-viewport network-viewport cdk-virtual-scroll-orientation-vertical"]').scrollTo('bottom');
 
 		var checkFollowers = "@" + firstName + "_" + lastName;
 		cy.contains(checkFollowers);
@@ -88,9 +90,11 @@ describe('Invite to auto follow', function(){
         cy.contains('View Profile').first().click();
 
         cy.wait(1000);
-        cy.scrollTo(0,300);
 
         cy.get('button[class="following"]').click();
+
+        // cy.get('cdk-virtual-scroll-viewport[class="cdk-virtual-scroll-viewport network-viewport cdk-virtual-scroll-orientation-vertical"]').scrollTo('bottom');
+
         cy.contains(json.users.main.userHandle)
 
         cy.get('mat-icon[class="mat-icon notranslate material-icons mat-icon-no-color"]').click();
