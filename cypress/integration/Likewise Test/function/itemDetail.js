@@ -132,7 +132,7 @@ describe('Items details', function() {
         cy.visit('/' + itemPath[4]);
         cy.wait(2000);
         //cy.get('p[class="description-item"]').should('contain', "H Cover art photo provided by Conor Rees on Unsplash: https://unsplash.com/@conorrees ");
-        cy.get('.similar-item-card > div > a').should('have.length', 2);
+        cy.get('.similar-item-card > div > a').should('have.length', 3);
 
     })
 
