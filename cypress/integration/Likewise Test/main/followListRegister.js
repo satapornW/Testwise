@@ -38,7 +38,7 @@ describe('Register on a list', function(){
 	it('Verify Following List', function(){
 
 		cy.viewport('macbook-15');
-		cy.get('a[class="lw-link"]').click();
+		cy.get('a[class="lw-link"]').click({force: true});
 		cy.wait(1000);
 		cy.contains('Lists').click();
 		cy.get('h3[class="title"]').should('contain', 'Read list');

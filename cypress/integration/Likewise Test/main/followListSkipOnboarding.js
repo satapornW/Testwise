@@ -39,7 +39,7 @@ describe('Register on a list', function(){
 
 		cy.viewport('macbook-15');
 		cy.get('button[id="follow-button"]').should('contain', 'Saved');
-		cy.get('a[class="lw-link"]').click();
+		cy.get('a[class="lw-link"]').click({force: true});
 		cy.wait(1000);
 		cy.contains('Lists').click();
 		cy.get('h3[class="title"]').should('contain', 'Read list');
