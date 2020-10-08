@@ -82,13 +82,16 @@ describe('Profile test', function () {
     // })
     
     it('Verify Profile Content', function () {
-        cy.get(".auth-btns .login-btn").click();
+
+        cy.startUp();
+        cy.mainScreenByPass();
+        cy.get('button[class="login lw-link primary"]').click();
         cy.get(".lw-form input[name='email']").type(json.users.static.name);
         cy.get(".lw-form input[name='password']").type(json.users.static.password);
         cy.get(".lw-form button.lw-btn").click();
         cy.get("app-avatar > div > button").click();
         cy.get(".lw-menu.user .mat-menu-item").first().click();
-        let expectedRecsCount = 66;
+        let expectedRecsCount = 75;
         let expectedListsCount = 7;
         let expectedAsksCount = 3;
         // verifying the tab labels
