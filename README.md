@@ -7,6 +7,13 @@ cd to cypress
 Running individual test with visual 
 ./node_modules/.bin/cypress open
 
+Install
+
+```bash
+npm install cypress --save-dev
+```
+
+Run
 ```bash
 npx cypress open --config-file config/test.json
 ```
