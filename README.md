@@ -1,11 +1,15 @@
 Automation test for testwise,
 Refactoring is in process
 
-How to run cypress:
+##How to run cypress:
 
 cd to cypress
 Running individual test with visual 
 ./node_modules/.bin/cypress open
+
+```bash
+npx cypress open --config-file config/test.json
+```
 
 Run headless
 Running all test test, no visual
